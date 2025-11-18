@@ -33,6 +33,12 @@ clang: {
     QMAKE_CXXFLAGS_WARN_ON = $$QMAKE_CFLAGS_WARN_ON
 }
 
+
+android {
+    QMAKE_LFLAGS += -Wl,-z,max-page-size=16384
+    QMAKE_LFLAGS_RELEASE += -Wl,-z,max-page-size=16384
+}
+
 # Prevents "catastrophic error: Too many segments for object format" for builds using Windows ICC
 msvc: QMAKE_CXXFLAGS += /bigobj
 
